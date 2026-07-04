@@ -1,0 +1,21 @@
+# Shared configuration for all repositories that feed into jupyterbook.org .
+# Because proxied sites are built with different base URLs, **all navigation links use fully-qualified URLs** (e.g., `https://jupyterbook.org/stable`) rather than relative paths.
+# This ensures navigation works correctly regardless of which sub-site the user is viewing.
+version: 1
+site:
+  template: book-theme
+  nav:
+    - title: Modelarts
+      url: https://jupyterbook.org/stable
+    - title: Modelarts Studio
+      url: https://jupyterbook.org/community
+  options:
+    logo_url: /
+    favicon: .../images/favicon.ico
+    logo: .../images/logo.svg
+    logo_dark: .../images/logo-dark.svg
+    internal_domains: jupyterbook.org
+  parts:
+    # This needs to point to a github raw file because other sites extend it, and this ensures it resolves for them
+    footer: footer.md
+

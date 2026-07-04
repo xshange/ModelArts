@@ -1,0 +1,76 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+extends:
+  - site.yml
+project:
+  # title:
+  # description:
+  # keywords: []
+  # authors: []
+  references:
+    guide: https://mystmd.org/guide
+  abbreviations:
+    MyST: Markedly Structured Text
+    CLI: Command-Line Interface
+    TOC: Table of Contents
+  plugins:
+    - src/xref.mjs
+    - src/directives.mjs
+    - src/admonition.mjs
+    # For shared footer
+    - src/index.mjs
+  github: https://github.com/jupyter-book/jupyter-book
+  toc:
+    - file: index.md
+      title: 用户指南
+    - file: get-started/index.md
+      children:
+        - file: get-started/install.md
+        - file: get-started/init.md
+        - file: get-started/create-content.md
+        - file: get-started/build-websites.md
+        - file: get-started/export-pdfs.md
+        - file: get-started/cross-reference.md
+        - file: get-started/publish.md
+    - title: 已验证适配模型
+      file: authoring/index.md
+      children:
+        - file: authoring/mystmd.md
+        - file: authoring/math.md
+        - file: authoring/authorship.md
+        - file: authoring/roles-and-directives.md
+    - title: FAQ
+      file: execution/index.md
+      children:
+        - file: execution/execution.md
+        - file: execution/jupyterlab.md
+        - file: execution/generate-myst.md
+    - title: 样式1
+      file: build-and-publish/index.md
+      children:
+        - file: build-and-publish/website.md
+        - file: build-and-publish/customize.md
+        - file: build-and-publish/publish.md
+        - file: build-and-publish/export.md
+    - title: 样式2
+      file: plugins/index.md
+      children:
+        - file: plugins/plugins.md
+        - file: plugins/directives-and-roles.md
+        - file: plugins/debug.md
+        - file: plugins/ast.md
+        - file: plugins/dependencies.md
+    - title: 样式3
+      children:
+        - file: resources/faq.md
+        - file: resources/upgrade.md
+        - file: resources/downgrade.md
+        - file: resources/glossary.md
+    - title: 样式4
+      children:
+        - file: contribute/code.md
+        - file: contribute/docs.md
+        - file: contribute/release.md
+site:
+  options:
+    folders: true

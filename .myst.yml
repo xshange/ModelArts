@@ -1,0 +1,8 @@
+version: 1
+project:
+  id: local-jupyter-book
+  title: My Jupyter Book
+site:
+  template: book-theme
+  options:
+    logo: logo.png

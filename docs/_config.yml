@@ -1,0 +1,16 @@
+# docs/_config.yml
+title: "ModelArts 文档"
+author: "ModelArts Team"
+
+execute:
+  execute_notebooks: "off"
+
+html:
+  baseurl: "/zh-cn/latest/"  # 重要！解决 JS 加载问题
+  use_repository_button: true
+  use_issues_button: true
+
+repository:
+  url: "https://github.com/xshange/ModelArts"
+  path_to_book: "docs"
+  branch: "main"

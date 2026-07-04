@@ -8,5 +8,23 @@ build:
   commands:
     - pip install nox requests
     - mkdir -p $READTHEDOCS_OUTPUT/html/
-    - BASE_URL="/$READTHEDOCS_VERSION" nox -s docs
+    - |
+      # 构建 BASE_URL
+      # READTHEDOCS_LANGUAGE 可能的值: en, zh-cn, zh-tw, ja, fr, de, etc.
+      LANG="${READTHEDOCS_LANGUAGE:-en}"
+      VERSION="${READTHEDOCS_VERSION:-latest}"
+      
+      # 如果是默认语言 (en)，不加语言前缀
+      if [ "$LANG" = "en" ]; then
+        BASE_URL="/$VERSION/"
+      else
+        BASE_URL="/$LANG/$VERSION/"
+      fi
+      
+      echo "🌐 Language: $LANG"
+      echo "📌 Version: $VERSION"
+      echo "🔗 BASE_URL: $BASE_URL"
+      
+      export BASE_URL
+      nox -s docs
     - cp -a docs/_build/html/. "$READTHEDOCS_OUTPUT/html/" && rm -r docs/_build

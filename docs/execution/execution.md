@@ -1,20 +1,13 @@
 ---
-title: MA 1.0快速加载模型
-short_title: MA 1.0快速加载模型
-subject: Tutorial
-subtitle: Execute content and insert it into your pages when you build your MyST project.
-description: Learn the basics of how MyST can be used to execute content with Jupyter technology.
+title: python在线机器下载安装包及依赖包，离线机器安装扩展包
+short_title: python在线机器下载安装包及依赖包，离线机器安装扩展包
+subject: Who
+subtitle: python在线机器下载安装包及依赖包，离线机器安装扩展包
+description: python在线机器下载安装包及依赖包，离线机器安装扩展包
 ---
 
-:::{note} Goals and prerequisites
-**Goals**: This tutorial covers how to take advantage of MyST features and customizability to execute computational content with your Jupyter Book build.
 
-**Prerequisites**: This assumes you've completed [Get Started](../get-started/index.md) and have Jupyter Book installed locally, as well as a local version of the [MyST quickstart content](https://github.com/jupyter-book/mystmd-quickstart).
-:::
-
-![](#lookout-for-tutorial-actions)
-
-## Start Jupyter Book 🚀
+##  下载安装包及依赖包🚀
 
 From [the quick start tutorial](../get-started/index.md), you should already have created a `myst.yml` configuration file that is required to render your project.
 To confirm this, run a Jupyter Book server to serve the quick start content:

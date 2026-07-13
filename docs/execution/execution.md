@@ -15,20 +15,39 @@ To confirm this, run a Jupyter Book server to serve the quick start content:
 🛠 Run `jupyter book start` to serve your quickstart content
 
 ```shell
-$ cd mystmd-quickstart
-$ jupyter book start
-📖 Built README.md in 33 ms.
-📖 Built 01-paper.md in 30 ms.
-📖 Built 02-notebook.ipynb in 6.94 ms.
-📚 Built 3 pages for myst in 76 ms.
+#!/bin/bash
+# prepare_ansible_offline.sh
 
-      ✨✨✨  Starting Book Theme  ✨✨✨
+echo "=== 准备 Ansible 离线安装包 ==="
 
-⚡️ Compiled in 510ms.
+# 配置 pip 阿里源
+mkdir -p ~/.pip
+cat > ~/.pip/pip.conf << 'EOF'
+[global]
+index-url = http://mirrors.aliyun.com/pypi/simple/
 
-🔌 Server started on port 3000!  🥳 🎉
+[install]
+trusted-host = mirrors.aliyun.com
+EOF
 
-      👉  http://localhost:3000  👈
+# 下载 Ansible 及依赖
+mkdir -p ~/ansible-offline
+cd ~/ansible-offline
+
+pip3 download ansible \
+    --platform manylinux2014_aarch64 \
+    --python-version 3.9 \
+    --only-binary :all: \
+    -i http://mirrors.aliyun.com/pypi/simple/ \
+    --trusted-host mirrors.aliyun.com \
+    -d .
+
+# 打包
+cd ~
+tar -czvf ansible-offline-aarch64-$(date +%Y%m%d).tar.gz ansible-offline/
+
+echo "=== 离线包已生成 ==="
+ls -lh ansible-offline-aarch64-*.tar.gz
 ```
 
 🛠 Open your web browser to `http://localhost:3000`[^open-port]
